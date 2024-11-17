@@ -1,0 +1,41 @@
+-- local coords = {
+--     { thema = 'thema-1',  key = "E", message = 'Open Crafting',      coords = vector3(-1361.4, -2937.25, 13.95) },
+--     { thema = 'thema-2',  key = "R", message = 'Open Door',          coords = vector3(-1365.01, -2935.3, 13.94) },
+--     { thema = 'thema-3',  key = "S", message = 'Open Vehicle',       coords = vector3(-1368.92, -2933.02, 13.94) },
+--     { thema = 'thema-4',  key = "C", message = 'Send Request',       coords = vector3(-1371.87, -2930.79, 13.94) },
+--     { thema = 'thema-5',  key = "U", message = 'Open Crafting',      coords = vector3(-1374.27, -2929.56, 13.94) },
+--     { thema = 'thema-6',  key = "P", message = 'Close Door',         coords = vector3(-1377.41, -2927.56, 13.94) },
+--     { thema = 'thema-7',  key = "R", message = 'Get in the vehicle', coords = vector3(-1380.6, -2925.83, 13.94) },
+--     { thema = 'thema-8',  key = "O", message = 'Open Trunk',         coords = vector3(-1383.87, -2924.35, 13.94) },
+--     { thema = 'thema-9',  key = "T", message = 'Lock Vehicle',       coords = vector3(-1386.82, -2922.87, 13.94) },
+--     { thema = 'thema-10', key = "J", message = 'Open Menu',          coords = vector3(-1390.4, -2921.17, 13.94) },
+
+-- }
+
+
+-- Citizen.CreateThread(function()
+--     while true do
+--         local ped = PlayerPedId()
+--         local pos = GetEntityCoords(ped)
+--         local isTextUiOpen = false
+--         for k, v in pairs(coords) do
+--             local dist = #(pos - v.coords)
+--             DrawMarker(2, v.coords + 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15,
+--                 255,
+--                 255,
+--                 255,
+--                 255,
+--                 false, false, false, true, false, false, false)
+--             if dist < 1.5 then
+--                 if not isTextUiOpen then
+--                     OpenTextUI(v.message, v.key, v.thema)
+--                     isTextUiOpen = true
+--                 end
+--             end
+--         end
+--         if not isTextUiOpen then
+--             CloseTextUI()
+--         end
+--         Citizen.Wait(0)
+--     end
+-- end)

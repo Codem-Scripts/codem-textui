@@ -1,0 +1,44 @@
+@font-face {
+    src: url("../fonts/GILROY-SEMIBOLD.TTF");
+    font-family: "Gilroy-SemiBold";
+}
+@font-face {
+    src: url("../fonts/SF-PRO-ROUNDED-BOLD.OTF");
+    font-family: "SF Pro Rounded";
+}
+@font-face {
+    src: url("../fonts/GILROY-BOLD.TTF");
+    font-family: "Gilroy-Bold";
+}
+@font-face {
+    font-family: "Gilroy-Medium";
+    src: url("../fonts/GILROY-BOLD.TTF");
+}
+
+body {
+    overflow: hidden;
+    user-select: none;
+    cursor: url("/images/cursor.ico"), default;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.5s ease;
+    transform: translateX(-60%);
+}
+.fade-enter {
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.fade-enter-to {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fade-leave {
+    opacity: 1;
+    transform: translateX(8px);
+}
+.fade-leave-to {
+    opacity: 0;
+    transform: translateX(-60px);
+}

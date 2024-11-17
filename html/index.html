@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./js/vue.global.js"></script>
+        <script src="./js/vuex.global.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/responsive.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+        <title>Codem Textui</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="w-full h-[100vh]" style="background-size: 100% 100%">
+                <div class="w-[40%] h-full flex items-center justify-start relative" style="overflow: hidden">
+                    <transition-group name="fade">
+                        <div class="w-[80%] h-[11%] absolute" v-for="notification in notifications" :key="notification.id">
+                            <div v-if="notification.thema == 'thema-1'" class="w-full h-[100%] flex justify-start">
+                                <div
+                                    class="w-[17.2%] h-full flex items-center justify-center"
+                                    style="background-image: url(./images/thema1.png); background-size: 100% 100%"
+                                >
+                                    <div
+                                        class="w-[28%] h-[26%] flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <div class="w-[82%] h-full flex items-center justify-start">
+                                    <h2
+                                        style="
+                                            color: #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            text-indent: 0.2vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.message}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div v-if="notification.thema == 'thema-2'" class="w-full h-[100%] flex justify-start absolute">
+                                <div
+                                    class="w-[17.2%] h-full flex items-center justify-center"
+                                    style="background-image: url(./images/thema2.png); background-size: 100% 100%"
+                                >
+                                    <div
+                                        class="w-[28%] h-[26%] flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <div class="w-[82%] h-full flex items-center justify-start">
+                                    <h2
+                                        style="
+                                            color: #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            text-indent: 0.2vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.message}}
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div
+                                v-if="notification.thema == 'thema-3'"
+                                class="inline-flex items-center bg-cover h-[100%] absolute"
+                                style="background-image: url('./images/test.png'); background-size: 100% 100%"
+                            >
+                                <div class="w-[6.5vw] h-full" style="background-image: url('./images/thema1.png'); background-size: 100% 100%">
+                                    <div
+                                        class="w-full h-full flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        color: #fff;
+                                        font-family: SF Pro Rounded;
+                                        font-size: 1vw;
+                                        text-indent: 0.2vw;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div
+                                v-if="notification.thema == 'thema-4'"
+                                class="inline-flex items-center bg-cover h-[80%] pr-[2vw] absolute"
+                                style="background-image: url('./images/test.png'); background-size: 100% 100%"
+                            >
+                                <div class="w-[5vw] h-full" style="background-image: url('./images/thema4.png'); background-size: 100% 100%">
+                                    <div
+                                        class="w-full h-full flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        color: #fff;
+                                        font-family: SF Pro Rounded;
+                                        font-size: 1vw;
+                                        text-indent: 0.2vw;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div
+                                v-if="notification.thema == 'thema-5'"
+                                class="inline-flex items-center h-[40%] mt-[3.5vh] ml-[1vw] rounded-[0.3vw] pr-[0.3vw]"
+                                style="background: #15181a"
+                            >
+                                <div
+                                    class="w-[2.0vw] h-[85%] ml-[0.2vw] border"
+                                    style="
+                                        border-radius: 7px;
+                                        border: 1px solid rgba(243, 238, 255, 0.08);
+                                        background: linear-gradient(180deg, rgba(243, 238, 255, 0) 0%, rgba(243, 238, 255, 0.04) 100%),
+                                            rgba(77, 95, 117, 0.01);
+                                        box-shadow: 0px 0px 12px 0px rgba(255, 255, 255, 0.08) inset;
+                                    "
+                                >
+                                    <div
+                                        class="w-full h-full flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <div
+                                    class="inline-flex ml-[0.5vw] items-center h-[85%] ml-[0.2vw] p-[0.6vw]"
+                                    style="
+                                        border-radius: 7px;
+                                        border: 1px solid rgba(243, 238, 255, 0.08);
+                                        background: linear-gradient(180deg, rgba(243, 238, 255, 0) 0%, rgba(243, 238, 255, 0.04) 100%),
+                                            rgba(77, 95, 117, 0.01);
+                                        box-shadow: 0px 0px 12px 0px rgba(255, 255, 255, 0.08) inset;
+                                    "
+                                >
+                                    <div class="w-full h-full flex items-center justify-center">
+                                        <h2
+                                            style="
+                                                color: #d3e7ff;
+                                                font-family: Gilroy-SemiBold;
+                                                font-size: 0.7vw;
+                                                font-style: normal;
+                                                font-weight: 400;
+                                                line-height: normal;
+                                            "
+                                        >
+                                            {{notification.message}}
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-if="notification.thema == 'thema-6'" class="inline-flex items-center mt-[3.5vh] ml-[1vw] h-[40%] absolute">
+                                <div class="w-[2.6vw] h-full" style="background-image: url('./images/thema6.png'); background-size: 100% 100%">
+                                    <div
+                                        class="w-full h-full flex items-center justify-center"
+                                        style="
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        text-indent: 1vw;
+                                        color: #d3e7ff;
+                                        font-family: Gilroy-SemiBold;
+                                        font-size: 0.6vw;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div
+                                v-if="notification.thema == 'thema-7'"
+                                class="inline-flex items-center mt-[1.7vh] h-[66%] pr-[4vw] absolute"
+                                style="background: linear-gradient(90deg, rgba(255, 133, 133, 0.35) 0%, rgba(255, 2, 2, 0) 100%)"
+                            >
+                                <div class="w-[3.4vw] h-full flex items-center justify-end">
+                                    <div
+                                        class="w-[80%] border h-[70%] flex items-center justify-center"
+                                        style="
+                                            border-radius: 8px;
+                                            border: 1px solid #f67a7b;
+                                            background: linear-gradient(180deg, #ff7d7d 0%, rgba(255, 125, 125, 0) 100%);
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        text-indent: 1vw;
+                                        color: #fff;
+                                        font-family: Gilroy-SemiBold;
+                                        font-size: 0.7vw;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div v-if="notification.thema == 'thema-8'" class="inline-flex items-center mt-[1.7vh] h-[66%] pr-[4vw] relative">
+                                <div
+                                    class="w-[9vw] h-[40vh] absolute"
+                                    style="background-image: url(./images/thema8icon.png); opacity: 0.5; background-size: 100% 100%"
+                                ></div>
+                                <div class="w-[3.4vw] h-full flex items-center justify-end z-[1]">
+                                    <div
+                                        class="w-[70%] h-[60%] flex items-center justify-center z-[1]"
+                                        style="
+                                            background-image: url(./images/thema8icon2.png);
+                                            background-size: 100% 100%;
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        text-indent: 1vw;
+                                        color: #fff;
+                                        font-family: Gilroy-SemiBold;
+                                        font-size: 0.7vw;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div v-if="notification.thema == 'thema-9'" class="inline-flex items-center mt-[1.7vh] h-[66%] pr-[4vw] relative">
+                                <div
+                                    class="w-[12vw] h-[40vh] absolute ml-[-3vw]"
+                                    style="background-image: url(./images/thema9icon.png); opacity: 0.5; background-size: 100% 100%"
+                                ></div>
+                                <div class="w-[3.4vw] h-full flex items-center justify-end z-[1]">
+                                    <div
+                                        class="w-[70%] h-[60%] flex items-center justify-center z-[1]"
+                                        style="
+                                            background-image: url(./images/thema8icon2.png);
+                                            background-size: 100% 100%;
+                                            color: #fff;
+                                            text-shadow: 0px 0px 1vw #fff;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        text-indent: 1vw;
+                                        color: #fff;
+                                        font-family: Gilroy-SemiBold;
+                                        font-size: 0.7vw;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                            <div
+                                v-if="notification.thema == 'thema-10'"
+                                class="inline-flex items-center mt-[1.7vh] h-[55%] pr-[4vw]"
+                                style="background-image: url(./images/thema10.png); background-size: 100% 100%"
+                            >
+                                <div class="w-[2.9vw] h-full flex items-center justify-end">
+                                    <div
+                                        class="w-[76%] h-[68%] flex items-center justify-center"
+                                        style="
+                                            background-image: url(./images/thema10icon.png);
+                                            background-size: 100% 100%;
+                                            color: white;
+                                            font-family: SF Pro Rounded;
+                                            font-size: 1vw;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                        "
+                                    >
+                                        {{notification.key}}
+                                    </div>
+                                </div>
+                                <h2
+                                    style="
+                                        text-indent: 1vw;
+                                        color: #fff;
+                                        font-family: Gilroy-SemiBold;
+                                        font-size: 0.7vw;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    "
+                                >
+                                    {{notification.message}}
+                                </h2>
+                            </div>
+                        </div>
+                    </transition-group>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://unpkg.com/swiper@5.3.8/js/swiper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./js/app.js" type="module"></script>
+    </body>
+</html>
